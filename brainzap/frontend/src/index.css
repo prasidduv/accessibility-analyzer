@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-h: 0;
+  --bg-s: 0%;
+  --bg-l: 0%;
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: hsl(var(--bg-h) var(--bg-s) var(--bg-l));
+  transition: background-color 700ms var(--ease-smooth), color 300ms var(--ease-smooth);
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(124, 58, 237, 0.2), transparent 40%),
+    radial-gradient(circle at 80% 75%, rgba(248, 112, 96, 0.16), transparent 45%);
+}
+
+.glass {
+  @apply bg-white/10 border border-zapPurple/30 backdrop-blur-xl rounded-2xl shadow-[0_14px_35px_rgba(0,0,0,0.35)];
+  transition: transform 240ms var(--ease-smooth), border-color 240ms var(--ease-smooth), box-shadow 240ms var(--ease-smooth);
+}
+
+.mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.section-title {
+  @apply font-heading tracking-tight;
+}
+
+.app-container {
+  @apply max-w-6xl mx-auto p-4 md:p-6;
+}
